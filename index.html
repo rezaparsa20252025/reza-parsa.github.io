@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رضا پارسا | پژوهشگر سیاست‌گذاری سایبری و حقوق هوش مصنوعی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+    <style>
+        /* Reset و فونت‌ها */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1a237e; /* آبی تیره - نماد اعتماد و تخصص */
+            --secondary: #0d47a1; /* آبی اصلی */
+            --accent: #0097a7; /* فیروزه‌ای - نماد تکنولوژی */
+            --light: #e3f2fd; /* آبی بسیار روشن */
+            --dark: #0d1b2a; /* مشکی متمایل به آبی */
+            --gray: #546e7a; /* خاکستری آبی */
+            --success: #2e7d32; /* سبز - نماد امنیت */
+        }
+        body {
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8fdff 0%, #e8f4fe 100%);
+            color: var(--dark);
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: right;
+        }
+        
+        /* کانتینر اصلی */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(13, 27, 42, 0.1);
+            overflow: hidden;
+            border: 1px solid rgba(26, 35, 126, 0.1);
+        }
+        
+        /* هدر */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+            text-align: center;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), #00bcd4);
+        }
+        
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .title {
+            font-size: 1.4rem;
+            color: #bbdefb;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .tagline {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.1rem;
+            border-right: 3px solid var(--accent);
+        }
+        
+        /* بخش محتوا */
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 100px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .specialties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .specialty-item {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid var(--accent);
+        }
+        
+        .specialty-item h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .specialty-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .specialty-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        /* لینک‌های شبکه‌های اجتماعی */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            color: var(--primary);
+            border-radius: 12px;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(26, 35, 126, 0.1);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(26, 35, 126, 0.2);
+        }
+        
+        /* دکمه‌ها */
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to left, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 5px 15px rgba(26, 35, 126, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 35, 126, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+        }
+        
+        /* فوتر */
+        .footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        
+        .footer a {
+            color: #bbdefb;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* واکنش‌گرایی */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                border-radius: 15px;
+            }
+            
+            .header, .content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+            }
+            
+            .specialties {
+                grid-template-columns: 1fr;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- هدر با اطلاعات شخصی -->
+        <header class="header">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="عکس رضا پارسا" class="profile-img">
+            <h1>رضا پارسا</h1>
+            <p class="title">پژوهشگر سیاست‌گذاری سایبری و حقوق هوش مصنوعی</p>
+            <div class="tagline">مسیرساز برای ایران دیجیتال</div>
+        </header>
+        
+        <!-- بخش محتوای اصلی -->
+        <main class="content">
+            <!-- بخش تخصص‌ها -->
+            <section class="section">
+                <h2 class="section-title">حوزه‌های تخصصی</h2>
+                <p>تمرکز اصلی پژوهش‌های من بر ایجاد چارچوب‌های حقوقی و سیاست‌گذاری در فضای سایبری ایران، با نگاه ویژه به تحولات نوظهور فناوری‌های دیجیتال است.</p>
+                
+                <div class="specialties">
+                    <div class="specialty-item">
+                        <div class="specialty-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>سیاست‌گذاری سایبری</h3>
+                        <p>تحلیل و طراحی چارچوب‌های حکمرانی فضای مجازی، امنیت سایبری و تنظیم‌گری پلتفرم‌های دیجیتال در چارچوب حقوق ایران.</p>
+                    </div>
+                    
+                    <div class="specialty-item">
+                        <div class="specialty-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>حقوق هوش مصنوعی</h3>
+                        <p>بررسی مسائل حقوقی نسل جدید هوش مصنوعی، اخلاق در AI، مسئولیت مدنی سیستم‌های خودکار و حریم خصوصی در عصر یادگیری ماشین.</p>
+                    </div>
+                    
+                    <div class="specialty-item">
+                        <div class="specialty-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>ادله دیجیتال</h3>
+                        <p>مطالعه ادله الکترونیکی در محاکم قضایی، استانداردهای پذیرش ادله دیجیتال و چالش‌های اثبات در فضای مجازی.</p>
+                    </div>
+                    
+                    <div class="specialty-item">
+                        <div class="specialty-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>چارچوب حفاظت داده</h3>
+                        <p>تحلیل قانون حمایت از داده‌های شخصی ایران، مقایسه تطبیقی با GDPR و طراحی مکانیزم‌های اجرایی برای حفاظت از اطلاعات شهروندان.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- بخش شبکه‌های اجتماعی -->
+            <section class="section">
+                <h2 class="section-title">ارتباط و همکاری</h2>
+                <p style="text-align: center; margin-bottom: 25px; color: var(--gray);">
+                    برای تبادل نظر، همکاری پژوهشی یا مشاوره در حوزه‌های تخصصی می‌توانید از طریق شبکه‌های زیر با من در ارتباط باشید:
+                </p>
+                
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" title="لینکدین">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/yourprofile" target="_blank" title="توییتر">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=yourprofile" target="_blank" title="گوگل اسکالر">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <a href="https://github.com/yourprofile" target="_blank" title="گیت‌هاب">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://t.me/yourchannel" target="_blank" title="تلگرام">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="mailto:reza.parsa@example.com" title="ایمیل">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- دکمه‌های اقدام -->
+            <div class="buttons">
+                <a href="https://drive.google.com/your-resume-link" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-download" style="margin-left: 8px;"></i>
+                    دریافت رزومه کامل
+                </a>
+                <a href="https://calendly.com/yourprofile" target="_blank" class="btn btn-secondary">
+                    <i class="fas fa-calendar-check" style="margin-left: 8px;"></i>
+                    رزرو جلسه مشاوره
+                </a>
+            </div>
+        </main>
+        
+        <!-- فوتر -->
+        <footer class="footer">
+            <p>© ۲۰۲۴ رضا پارسا - تمامی حقوق محفوظ است</p>
+            <p style="margin-top: 10px; font-size: 0.85rem; color: #bbdefb;">
+                تلفن: ۰۲۱-XXXXXXXX | ایمیل: reza.parsa@example.com
+            </p>
+            <p style="margin-top: 10px;">
+                <a href="privacy.html">حریم خصوصی</a> | 
+                <a href="terms.html">شرایط استفاده</a> | 
+                <a href="publications.html">آخرین انتشارات</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
